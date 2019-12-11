@@ -111,6 +111,32 @@ def gamma_bs_MLE(conc_data):
 	return [np.mean(alpha_vals), np.mean(beta_vals)], np.percentile(bs_reps, [2.5, 97.5], axis=0)
 
 def get_gamma_conf_intervals(concentrations, dataframe, conc_column, time_column):    
+	
+	"""
+	generate bootstrap replicates for gamma MLE estimation of catastrophe
+	data and return a dataframe with all relevant information, along 
+	with arrays containing confidence intervals and MLE averages.
+
+		Parameters
+		----------
+		concentrations: list conaining all tubulin concentrations of
+		interest
+		dataframe: dataframe with catastrophe times under colunns labeled
+		with tubulin concentratiosn
+		conc_column: the label used for the column with tubulin conc.
+		in the dataframe
+		time_column: the label used for the column with catastrophe
+		times in the dataframe
+		
+		Returns
+		-------
+		output : dataframe, array, array
+		dataframe with all relevant info
+		array with confidence interavls
+		array with MLE estimates
+
+	"""
+	
 	#Make lists for both the MLE values and the confidence intervals
 	MLE_vals = []
 	conf_ints = []
