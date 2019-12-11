@@ -99,20 +99,20 @@ def plot_alpha_beta(dataframe):
 	output : Holoviews plot of alpha vs. beta 
 	"""
     
-    plot = hv.Points(
-        data=dataframe,
-        kdims=['alpha MLE', 'beta MLE'],
-        vdims=['Tubulin Concentration (uM)'],
-    ).groupby(
-        'Tubulin Concentration (uM)'
-    ).opts(
-        title='beta MLE vs. alpha MLE',
-        height=300,
-        width=500,
-        xlabel='α MLE',
-        ylabel='β MLE',
-    ).overlay()
-    return plot
+	plot = hv.Points(
+		data=dataframe,
+		kdims=['alpha MLE', 'beta MLE'],
+		vdims=['Tubulin Concentration (uM)'],
+	).groupby(
+		'Tubulin Concentration (uM)'
+	).opts(
+		title='beta MLE vs. alpha MLE',
+		height=300,
+		width=500,
+		xlabel='α MLE',
+		ylabel='β MLE',
+	).overlay()
+	return plot
 
 
 def show_alpha_beta_with_conf(conf_ints, MLE_centers):
