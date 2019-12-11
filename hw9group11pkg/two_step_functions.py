@@ -5,6 +5,22 @@ import scipy.stats
 import scipy
 
 def two_step_log_like(params, t):
+    
+    """Log likelihood for a two successive Poisson processes with
+    input being beta1 and beta2 parameters as well as counts.
+
+    Parameters
+    ----------
+    params : array of the parameters beta1 and beta2.
+    t : array array of counts.
+
+    Returns
+    -------
+    output : float
+        Log-likelihood.
+    """
+    
+    
     beta_1, delta_beta = params
 
     n = len(t)
@@ -26,6 +42,21 @@ def two_step_log_like(params, t):
 
 
 def two_step_mle(t):
+    
+    """
+    Perform maximum likelihood estimates for parameters for
+    a two successive Poisson processes, parametrized by beta1 and beta2.
+    
+    Parameters
+    ----------
+    t : array array of counts.
+
+    Returns
+    -------
+    output : float
+         maximum likelihood estimates for beta1 and beta2.
+    """
+    
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
 
